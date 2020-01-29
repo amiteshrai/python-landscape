@@ -10,7 +10,7 @@ from src.utils.logger import get_logger
 LOGGER = get_logger(__name__)
 
 
-def remove_duplicates(input_str):
+def remove_duplicates(input_str: str) -> str:
     """
     Convert an input string into a new string with unique characters
 
@@ -38,14 +38,14 @@ def remove_duplicates(input_str):
 
 
 input_value = "dsdhsjkkakdjs"
-LOGGER.info("Input String %s", input_value)
+LOGGER.info("Input String : %s", input_value)
 
 output_value = remove_duplicates(input_value)
-LOGGER.info("Output Unique String %s", output_value)
+LOGGER.info("Output Unique String : %s", output_value)
 
 # Shorhand for the above function
 output_value = "".join({char for char in input_value})
 LOGGER.info(
-    "Output Unique String (Single Line Solution, but without the original order) %s",
+    "Output Unique String (Single Line Solution, but without the original order) : %s",
     output_value,
 )
