@@ -1,4 +1,10 @@
-""" Command Line Arguments In Python """
+"""
+    Basics Of Command Line Arguments In Python
+
+    Further reading :
+    1. Short vs Long Options
+    2. Conflictiong Options & Mutually Exclusive Groups
+"""
 
 import argparse
 
@@ -67,4 +73,4 @@ if __name__ == "__main__":
     output = calculate(**arg_vars)
     LOGGER.debug("Calculator Output : %s", output)
 
-# python src/basics/comandline.py add -x=3 -y=2
+# Running the file: python src/basics/comandline.py add -x=3 -y=2
