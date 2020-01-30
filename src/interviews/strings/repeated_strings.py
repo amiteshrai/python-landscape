@@ -79,6 +79,9 @@ def repeated_char_counter_optimized(s: str, n: int) -> int:
 
     # Initialize Counter
     a_count = len([char for char in s if char == "a"])
+    if a_count == 0:
+        return a_count
+
     quotient = int(n / s_length)
     a_count = a_count * quotient
     remainder = n - (s_length * quotient)
