@@ -84,7 +84,7 @@ def repeated_char_counter_optimized(s: str, n: int) -> int:
 
     quotient = int(n / s_length)
     a_count = a_count * quotient
-    remainder = n - (s_length * quotient)
+    remainder = n % s_length
     remainder_a_count = len([char for char in s[:remainder] if char == "a"])
     a_count = a_count + remainder_a_count
     LOGGER.info("Output : %d", a_count)
