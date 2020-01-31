@@ -1,40 +1,28 @@
 """
     Implementing Linked List In Python
 
-    A linked list is a data structure made of a chain of node objects.
-    Each node contains a value and a pointer to the next node in the chain.
+    A linked list is a data structure made of a chain of data node objects.
+    Each data node contains a value and a pointer to the next data node in the chain.
 
     Linked lists are preferred over arrays due to their dynamic size and ease of
     insertion and deletion properties.
 """
 
-
+from src.datastructures.datanode import DataNode
 from src.utils.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
-# Data Node Class
-class Node:
-    """
-        The object of this class will be the actual nodes that will hold the data and
-        the reference to the next node.
-    """
 
-    def __init__(self, data):
-        # Define varibles to hold data and reference to next node
-        self.data = data
-        self.next = None
-
-
-# Actual Linked List Class
-class LinkedList:
+# SinglyLinkedList Class Implementation
+class SinglyLinkedList:
     """
         The class contains actual implementation class of the linked list.
         This contains methods to insert/remove/traverse/sort/search.
     """
 
     def __init__(self):
-        # Define a variable to hold the reference to the start node
+        # Define a variable to hold the reference to the start data node
         self.node = None
 
     def traverse(self) -> None:
@@ -49,20 +37,20 @@ class LinkedList:
             current_node = self.node
             index = 0
             while current_node is not None:
-                LOGGER("Index: %d, Value: %s", index, current_node.data)
+                LOGGER("Index: %d, Value: %s", index, current_node.value)
                 index += 1
                 current_node = current_node.next
 
-    def insert(self, data) -> None:
+    def insert(self, value) -> None:
         """
-        Insert a new data node at the end of linked list
+        Insert a new data node at the end of linked list with given data value
 
         Arguments:
-            data {str/int/float} -- The value of the new node element
+            value {any} -- The value of the new node element
         """
 
         # Create new node with the given data value
-        new_node = Node(data)
+        new_node = DataNode(value)
 
         # If no data node is found, create
         if self.node is None:
@@ -79,16 +67,16 @@ class LinkedList:
         # Point the last data node's next to the new data node
         current_node.next = new_node
 
-    def insert_start(self, data) -> None:
+    def insert_start(self, value) -> None:
         """
-        Insert a data node at the beginning of the linked list
+        Insert a data node at the beginning of the linked list with gievn value
 
         Arguments:
-            data {str/int/float} -- The value of the new node element
+            value {any} -- The value of the new node element
         """
 
-        # Create new node with the given data value
-        new_node = Node(data)
+        # Create new data node with the given value
+        new_node = DataNode(value)
 
         # Assign new node's next to the current start of the linked list
         new_node.next = self.node
@@ -96,13 +84,13 @@ class LinkedList:
         # Assign the linkedlist start to the new node
         self.node = new_node
 
-    def insert_after(self, node_data, after_data) -> None:
+    def insert_after(self, new_value, current_value) -> None:
         """
-        Insert a new data node after the node with given value
+        Insert a new data node with the given value after the node with given value
 
         Arguments:
-            node_data {str/int/float} -- The value of the new node element
-            after_data {str/int/float} -- The value of the existing node
+            new_value {any} -- The value of the new node element
+            current_value {any} -- The value of the existing node
         """
 
         # Get reference to the start of the linked list
@@ -110,7 +98,7 @@ class LinkedList:
 
         # Iterate through the each node element, untill desired node is not found
         while current_node is not None:
-            if current_node.data == after_data:
+            if current_node.value == current_value:
                 break
             current_node = current_node.next
 
@@ -118,27 +106,27 @@ class LinkedList:
         if current_node is None:
             LOGGER.error("Item not present in the list")
         else:
-            new_node = Node(node_data)
+            new_node = DataNode(new_value)
             new_node.next = current_node.next
             current_node.next = new_node
 
-    def insert_befor(self, node_data, before_data) -> None:
+    def insert_befor(self, new_value, current_value) -> None:
         """
         Insert a new data node after the node with given value
 
         Arguments:
-            node_data {str/int/float} -- The value of the new node element
-            after_data {str/int/float} -- The value of the existing node
+            new_value {any} -- The value of the new node element
+            current_value {any} -- The value of the existing node
         """
 
         # TODO
 
-    def insert_at_index(self, data, index) -> None:
+    def insert_at_index(self, value, index) -> None:
         """
-        Insert a new data node at the given index
+        Insert a new data node with the given value at the given index
 
         Arguments:
-            node_data {str/int/float} -- The value of the new node element
+            value {any} -- The value of the new node element
             index {int} -- The value of the index at which the new node will be inserted
         """
 
@@ -154,10 +142,33 @@ class LinkedList:
             current_node = current_node.next
             node_index += 1
 
-        # Insert the new node at the specified index
+        # Insert the new data node at the specified index
         if current_node is None:
             LOGGER.error("Index out of bound error %s.", node_index)
         else:
-            new_node = Node(data)
+            new_node = DataNode(value)
             new_node.next = current_node.next
             current_node.next = new_node
+
+    def __str__(self) -> str:
+        """
+        Override str method to print the list
+
+        Returns:
+            str -- String representation of the list
+        """
+
+        list_str = "SinglyLinkedList [ "
+        while self.node is not None:
+            list_str = "{}{}".format(list_str, self.node)
+            self.node = self.node.next
+            if self.node is not None:
+                list_str = " -> {}".format(list_str)
+        list_str = "{} ]".format(list_str)
+
+        return list_str
+
+
+list1 = SinglyLinkedList()
+list1.insert(20)
+LOGGER.info("%s", list1)
