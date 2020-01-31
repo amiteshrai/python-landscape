@@ -158,12 +158,16 @@ class SinglyLinkedList:
             str -- String representation of the list
         """
 
+        # list string start
         list_str = "SinglyLinkedList [ "
         while self.node is not None:
             list_str = "{}{}".format(list_str, self.node)
             self.node = self.node.next
+
             if self.node is not None:
-                list_str = " -> {}".format(list_str)
+                list_str = "{} -> ".format(list_str)
+
+        # list string end
         list_str = "{} ]".format(list_str)
 
         return list_str
@@ -171,4 +175,6 @@ class SinglyLinkedList:
 
 list1 = SinglyLinkedList()
 list1.insert(20)
+list1.insert_start(15)
+list1.insert_start(10)
 LOGGER.info("%s", list1)

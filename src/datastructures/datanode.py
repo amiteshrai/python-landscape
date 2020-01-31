@@ -5,6 +5,9 @@
     the data value as well as the references to the next and previous data nodes
 """
 
+import inspect
+
+
 # DataNode Class Implementation
 class DataNode:
     """
@@ -57,14 +60,14 @@ class DataNode:
 
     @next.setter
     def next(self, next_node):
-        if next_node is not None and isinstance(next_node, DataNode):
+        if next_node is not None and not isinstance(next_node, (DataNode)):
             raise ValueError("The reference is not of type DataNode")
 
         self._next = next_node
 
     @previous.setter
     def previous(self, previous_node):
-        if previous_node is not None and isinstance(previous_node, DataNode):
+        if previous_node is not None and not isinstance(previous_node, (DataNode)):
             raise ValueError("The reference is not of type DataNode")
 
         self._previous = previous_node
