@@ -110,9 +110,9 @@ class SinglyLinkedList:
             new_node.next = current_node.next
             current_node.next = new_node
 
-    def insert_befor(self, new_value, current_value) -> None:
+    def insert_before(self, new_value, current_value) -> None:
         """
-        Insert a new data node after the node with given value
+        Insert a new data node before the node with given value
 
         Arguments:
             new_value {any} -- The value of the new node element
