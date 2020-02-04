@@ -36,3 +36,4 @@ appdata
 celerybeat.pid
 celerybeat-schedule
 .ipynb_checkpoints
+COPYING*

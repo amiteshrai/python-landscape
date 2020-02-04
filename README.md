@@ -20,3 +20,8 @@ Learning and documenting my knowledge about Python programming language
 6. Data Structures
 7. Algorithms
 8. Interview Questions
+
+## Configure pylint into git hook
+
+1. Install git-pylint-commit-hook using `pip install git-pylint-commit-hook`
+2. TODO

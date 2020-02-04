@@ -37,7 +37,7 @@ class LinkedList:
         # Define a variable to hold the reference to the start node
         self.node = None
 
-    def traverse(self) -> None:
+    def traverse(self):
         """
             Traverse through linked list and print the elements
         """
@@ -53,7 +53,7 @@ class LinkedList:
                 index += 1
                 current_node = current_node.next
 
-    def insert(self, data) -> None:
+    def insert(self, data):
         """
         Insert a new data node at the end of linked list
 
@@ -79,7 +79,7 @@ class LinkedList:
         # Point the last data node's next to the new data node
         current_node.next = new_node
 
-    def insert_start(self, data) -> None:
+    def insert_start(self, data):
         """
         Insert a data node at the beginning of the linked list
 
@@ -96,7 +96,7 @@ class LinkedList:
         # Assign the linkedlist start to the new node
         self.node = new_node
 
-    def insert_after(self, node_data, after_data) -> None:
+    def insert_after(self, node_data, after_data):
         """
         Insert a new data node after the node with given value
 
@@ -122,7 +122,7 @@ class LinkedList:
             new_node.next = current_node.next
             current_node.next = new_node
 
-    def insert_befor(self, node_data, before_data) -> None:
+    def insert_befor(self, node_data, before_data):
         """
         Insert a new data node after the node with given value
 
@@ -131,9 +131,7 @@ class LinkedList:
             after_data {str/int/float} -- The value of the existing node
         """
 
-        # TODO
-
-    def insert_at_index(self, data, index) -> None:
+    def insert_at_index(self, data, index):
         """
         Insert a new data node at the given index
 

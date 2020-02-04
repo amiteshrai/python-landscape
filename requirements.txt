@@ -1,11 +1,11 @@
 autopep8==1.5
 bandit==1.6.2
 black==19.10b0
-flake8==3.7.9
 mypy==0.761
 pep8==1.7.1
 pipdeptree==0.13.2
 pylint==2.4.4
 pyre-check==0.0.41
-pytest==5.3.4
+pytest-cov==2.8.1
+radon==4.1.0
 setuptools==39.0.1
