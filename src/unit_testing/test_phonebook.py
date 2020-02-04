@@ -44,3 +44,9 @@ class PhoneBookTest(unittest.TestCase):
 
         LOGGER.de("Testing phonebook's consitency...")
         self.assertTrue(self.phonebook.is_consistent())
+
+
+# When this module is run directly, run all the test cases
+# However, there is some issue with VS Code which result in error
+if __name__ == "__main__":
+    unittest.main()

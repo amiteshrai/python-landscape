@@ -5,8 +5,6 @@
     the data value as well as the references to the next and previous data nodes
 """
 
-import inspect
-
 
 # DataNode Class Implementation
 class DataNode:

@@ -17,9 +17,10 @@ Learning and documenting my knowledge about Python programming language
 3. Functional Programming
 4. Concurrenct Programming
 5. Design Patterns
-6. Data Structures
-7. Algorithms
-8. Interview Questions
+6. Unit Testing
+7. Data Structures
+8. Algorithms
+9. Interview Questions
 
 ## Configure pylint into git hook
 
