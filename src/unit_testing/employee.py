@@ -1,5 +1,7 @@
 """ Employee Module """
 
+import requests
+
 
 class Employee:
     """ An Employee Class """
@@ -39,8 +41,11 @@ class Employee:
 
         self.pay = int(self.pay * self._increment)
 
+    def get_schedule(self, month) -> str:
+        """ Get Employee Monthly Schedule """
 
-if __name__ == "__main__":
-    employee = Employee("Amitesh", "Rai", 1500000)
-    employee.increment = 125
-    print(employee.increment)
+        response = requests.get(f"http://mycompany.com/{self.fullname}/{month}")
+        if response.ok:
+            return response.text
+        else:
+            return "Bad Response!"
